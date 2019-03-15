@@ -4,4 +4,5 @@ Text and sentiment analysis on 8,000 #immigration tweets collected through Twitt
 
 Tweets created between Feb 14, 2019 - Feb 18, 2019
 
+Additional visualizations created in Microsoft Power BI.
 
