@@ -18,12 +18,6 @@ df <- read.csv("immigration_tweets.csv")
 df$text <- gsub("...$","", df$text)
 df$text <- gsub("(f|ht)(tp)(s?)(://)(\\S*)", "", df$text)
 df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, """, "")
-df$text <- str_replace_all(df$text, """, "")
-df$text <- str_replace_all(df$text, "'", "")
 df$text <- str_replace_all(df$text, ".", "")  
 
 df$text = gsub("&amp", "", df$text)
@@ -79,27 +73,10 @@ sapply(aggdata,typeof)
 
 aggdata$index <- as.numeric(aggdata$index)
 
-# ggplot(aggdata, aes(index, x,fill = x > 0)) +
-#   
-#   geom_bar(alpha = 0.5, stat = "identity", show.legend = FALSE) +
-#   
-#   labs(x = "Tweets", y="Sentiment Score", title="Sentiment...")
-
-
-
-#################################################################################
-
-################### COMPARISON AND COMMONALITY CLOUDS ###########################
-
-#################################################################################
-
-
 
 #Using the sentiment score for each tweet, divide the tweets into positive and
 #negative. The words from these two sets of tweets are then used to find commonalities
 #through the commonality cloud and differences through the comparison cloud.
-
-
 
 # split the sentiment scores by positive and negative tweet values
 
@@ -134,7 +111,6 @@ TDM_speech <- TermDocumentMatrix(cleaned_speech_corpus,
                                  control =list(wordLengths=c(0,Inf)))
 TDM_speech_m <- as.matrix(TDM_speech)
 
-########################### Commonality Cloud ###################################
 
 #this code creates a word cloud based on words that are common among both the
 #positive and the negative tweets
