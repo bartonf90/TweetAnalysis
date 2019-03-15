@@ -69,8 +69,6 @@ cleaned_tweet_corpus <- clean_corpus(tweet_corpus)
 #           rot.per=.2)
 
 
-# write.csv(word_freqs, "unigram_word_freqs.csv")
-# write.csv(df, "immigration_tweets3.csv") 
 
 # TF-IDF
 tfidf_tdm <- TermDocumentMatrix(cleaned_tweet_corpus,control=list(weighting=weightTfIdf))
@@ -91,7 +89,7 @@ wordcloud(word_freqs$term, word_freqs$num,min.freq=5,
           random.order = FALSE, max.words=3000,scale=c(4,.8),
           colors=brewer.pal(8, "Dark2"))
 
-write.csv(word_freqs, "tf idf word freqs.csv")
+
 
 
 
