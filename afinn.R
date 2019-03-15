@@ -69,8 +69,6 @@ afinn_aggdata1 <- aggregate(mytext_afinn_lex$sentiment_value, list(index = mytex
 afinn_aggdata1$index <- as.numeric(afinn_aggdata1$index)
 colnames(afinn_aggdata1) <- c("index","afinn_score")
 
-write.csv(mytext_afinn_lex, "mytext_afinn_lex.csv")
-
 #### trying to create a diverging plot with ggplot2
 
 random_afinn_lex <- mytext_afinn_lex %>% sample_n(20, replace = FALSE)
@@ -105,7 +103,3 @@ ggplot(afinn_topbottom, aes(x = term, y = score, fill = score > 0)) +
         axis.text.y = element_text(family="Consolas",face="plain", color="black", 
                                    size=8)) 
 
-  #geom_text(aes(label = score), size=4, vjust = .5, hjust=.5,
-   #        family = "Courier New")
-
-# should I use geom_label or geom_text
