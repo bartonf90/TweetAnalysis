@@ -11,12 +11,6 @@ df <- read.csv("immigration_tweets.csv")
 df$text <- gsub("...$","", df$text)
 df$text <- gsub("(f|ht)(tp)(s?)(://)(\\S*)", "", df$text)
 df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, "'", "")
-df$text <- str_replace_all(df$text, """, "")
-df$text <- str_replace_all(df$text, """, "")
-df$text <- str_replace_all(df$text, "'", "")
 df$text <- str_replace_all(df$text, ".", "")  
 
 df$text = gsub("&amp", "", df$text)
@@ -51,9 +45,6 @@ df$replyToUID <- NULL
 df$statusSource <- NULL
 df$longitude <- NULL
 df$latitude <- NULL
-
-
-write.csv(df, "immigration_tweets.csv")
 
 tweet_corpus <- VCorpus(VectorSource(df$text))
 # print(tweet_corpus)
@@ -98,6 +89,3 @@ wordcloud(word_freqs$term, word_freqs$num,min.freq=30,max.words=300,
           colors=brewer.pal(8, "Dark2"), scale=c(3,.4), 
           random.color = FALSE, random.order = FALSE, rot.per = .15)
 
-#write.csv(word_freqs, "trigram_word_freqs.csv")
-
-mycols3 <- c("#2f4b7c","#665191","#a05195","#d45087","#f95d6a","#ff7c43", "#ffa600")
